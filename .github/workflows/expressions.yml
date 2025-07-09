@@ -23,5 +23,5 @@ jobs:
         run: ech "LOL"
       
       - name: Output_failed_job
-        if: ${{ failed() }}
+        if: ${{ failure() }}
         run: echo "Some JOBS FAILED"
