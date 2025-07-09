@@ -11,3 +11,17 @@ jobs:
           echo "Msg 1"
           echo "Msg 2"
           echo "::endgroup::"
+
+      - name: "step 1"
+        run: | 
+          echo "MY_VAL=hello" >> $GITHUB_ENV
+          echo "::warning ::${GITHUB_ENV}"
+          echo "::warning ::${MY_VAL}"
+
+        
+      - name: "step 2"
+        run: |
+          echo "::add-mask::${Secret_Var}"
+          echo "This should be masked: ${Secret_Var}"
+        env:
+          Secret_Var: P@ssw0rd
